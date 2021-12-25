@@ -27,9 +27,9 @@ def go(args):
     # YOUR CODE HERE     #
     ######################
     # Select obs that have non-outlier price
-    idx = df['price'].between(args.min_price, args.max_price)# & \
-            #df['longitude'].between(-74.25, -73.50) & \
-            #df['latitude'].between(40.5, 41.2)
+    idx = df['price'].between(args.min_price, args.max_price) & \
+            df['longitude'].between(-74.25, -73.50) & \
+            df['latitude'].between(40.5, 41.2)
     df = df[idx].copy()
     # Covert 'last_review' to datetime
     df['last_review'] = pd.to_datetime(df['last_review'])
